@@ -3,4 +3,4 @@ deployment:
   imageVersion: 1.31.3-alpine
 
 service:
-  - type: ClusterIP
+  type: ClusterIP
