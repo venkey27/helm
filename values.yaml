@@ -4,3 +4,16 @@ deployment:
 
 service:
   type: ClusterIP
+ 
+#we will keep env specific values seperate we apply/upgrade chart with those values at run time. image is same across all the env only values means configuration changes
+
+# Chart.yaml -> contains all the chart related configuration like name, chartversion, apiversion, description, etc
+# templates -> where we keep all the manifest files with placeholders
+# values.yaml -> we maintain default values for the templates placeholders
+
+# helm upgrade --install -f values-prod.yaml       ---> for production environmet
+# helm upgrade --install <chart-name> .            ----> for default values.yaml 
+
+# helm upgrade nginx --set deployment.replicas=10 --set service.type=LoadBalancer --description "upgrading to version 1.1.4" .  ---> to pass values in the terminal 
+# values.yaml -> --set deployment.replicas=10
+# helm Chart.yaml -> --description 
